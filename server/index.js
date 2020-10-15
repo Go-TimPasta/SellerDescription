@@ -23,6 +23,13 @@ app.get('/api/store/:id', (req, res) => {
   });
 });
 
+app.delete('/api/store/:id', (req, res) => {
+  dbHelper.deleteStore(req.params.id, (err, result) => {
+    if (err) res.status(400).send(err);
+    else res.status(200).json(result);
+  });
+});
+
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 
 const PORT = 8004;
