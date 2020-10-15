@@ -30,7 +30,30 @@ const getSellerProducts = (id, callback) => {
   });
 };
 
+const deleteStore = (id, callback) => {
+  db.query(`Delete FROM products WHERE products.store_id=${id}`, (err, results) => {
+    if (err) {
+      callback(err);
+    } else {
+      db.query(`Delete FROM sellers WHERE sellers.store_id=${id}`, (err, results) => {
+        if (err) {
+          callback(err);
+        } else {
+          db.query(`Delete FROM stores WHERE stores.id=${id}`, (err, results) => {
+            if (err) {
+              callback(err);
+            } else {
+              callback(null, results);
+            }
+          })
+      }
+      })
+  }
+})
+};
+
 module.exports = {
   getSeller,
   getSellerProducts,
+  deleteStore,
 };

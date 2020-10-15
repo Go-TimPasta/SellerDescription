@@ -6,7 +6,9 @@ const db = mysql.createConnection(LOGIN);
 db.connect();
 
 db.query('SELECT 1 + 1 AS solution', (error, results) => {
-  if (error) throw error;
+  if (error){
+    console.log(error);
+  }
   console.log('The solution is: ', results[0].solution);
 });
 
