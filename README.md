@@ -8,3 +8,28 @@
 
 ## Starting the Server
 1. In the root directory, type `npm run start`
+
+
+## CRUD routes
+GET A SELLER & PRODUCTS:
+  Get('/api/seller/:id')
+
+GET A STORE WITH SELLER AND PRODUCTS:
+  Get('/api/store/:id')
+
+DELETE A STORE WITH SELLER AND PRODUCTS:
+  Delete('/api/store/:id')
+
+UPDATE A STORE NAME:
+  Put('/api/store/:id) with body ex:
+  "${store_name}" : "Pizza Hut"
+
+POST A STORE:
+  Post('api/store) with body example:
+  {
+    "store_name": "Tracys",
+    "sales": 25,
+    "year_started": 1995,
+    "based_in": "Vietnam",
+    "store_image": "none"
+}

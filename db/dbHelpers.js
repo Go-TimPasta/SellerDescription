@@ -46,8 +46,29 @@ const deleteStore = (id, callback) => {
               callback(null, results);
             }
           })
-      }
+        }
       })
+    }
+  })
+};
+
+const updateStore = (id, data, callback) => {
+  db.query(`UPDATE stores SET store_name = '${data.store_name}' WHERE id = ${id}`, (err, results) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, results);
+    }
+  })
+};
+
+
+const createStore = (data, callback) => {
+  db.query(`INSERT INTO stores (store_name, sales, year_started, based_in, store_image) VALUES ('${data.store_name}', '${data.sales}', '${data.year_started}', '${data.based_in}', '${data.store_image}')`, (err,results) => {
+  if (err) {
+    callback(err);
+  } else {
+    callback(null, results);
   }
 })
 };
@@ -56,4 +77,6 @@ module.exports = {
   getSeller,
   getSellerProducts,
   deleteStore,
+  updateStore,
+  createStore,
 };
