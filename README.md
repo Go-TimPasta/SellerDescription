@@ -33,3 +33,30 @@ POST A STORE:
     "based_in": "Vietnam",
     "store_image": "none"
 }
+
+-----------------------------------------------------
+TO CREATE CSV FILE, IN ROOT DIRECTORY, WRITE IN TERMINAL: node reseed.js
+-you will receive 3 files
+
+
+HOW TO IMPORT CSV INTO MONGODB:
+
+1.) To start mongo on terminal command line, type: mongodb
+
+2.) Navigate to the directory where your CSV file is
+
+3.) Use the mongoimport command where "tests" is your database name, "products" is your table/collection name, and "products.csv" is your csv file name
+    mongoimport --type csv -d test -c products --headerline --drop products.csv;
+    mongoimport --type csv -d test -c sellers --headerline --drop sellers.csv;
+    mongoimport --type csv -d test -c stores --headerline --drop stores.csv;
+
+4.) Verify the Import Worked
+  In command line, write: mongo
+
+5.) Then in mongo, on command line write: >use test
+  where "test" is your database name
+
+6.) To query all items in a specific collection, use >db.products.find()
+where "products" is your collection name.
+
+

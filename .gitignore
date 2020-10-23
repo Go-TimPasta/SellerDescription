@@ -2,6 +2,9 @@
 .DS_Store
 config/db.js
 client/dist/bundle.js
+stores.csv
+sellers.csv
+products.csv
 
 # Logs
 logs
