@@ -1,7 +1,9 @@
+require('newrelic');
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
-const dbHelper = require('../db/dbHelpers');
+const dbHelper = require('../pgdb/dbHelpers');
+// const dbHelper = require('../db/dbHelpers');
 
 const app = express();
 
@@ -23,26 +25,26 @@ app.get('/api/store/:id', (req, res) => {
   });
 });
 
-app.delete('/api/store/:id', (req, res) => {
-  dbHelper.deleteStore(req.params.id, (err, results) => {
-    if (err) res.status(400).send(err);
-    else res.status(200).json(results);
-  });
-});
+// app.delete('/api/store/:id', (req, res) => {
+//   dbHelper.deleteStore(req.params.id, (err, results) => {
+//     if (err) res.status(400).send(err);
+//     else res.status(200).json(results);
+//   });
+// });
 
-app.put('/api/store/:id', (req, res) => {
-  dbHelper.updateStore(req.params.id, req.body, (err, results) => {
-    if (err) res.status(400).send(err);
-    else res.status(200).json(results);
-  })
-});
+// app.put('/api/store/:id', (req, res) => {
+//   dbHelper.updateStore(req.params.id, req.body, (err, results) => {
+//     if (err) res.status(400).send(err);
+//     else res.status(200).json(results);
+//   });
+// });
 
-app.post('/api/store', (req, res) => {
-  dbHelper.createStore(req.body, (err, results) => {
-    if (err) res.status(400).send(err);
-    else res.status(200).json(results);
-  })
-});
+// app.post('/api/store', (req, res) => {
+//   dbHelper.createStore(req.body, (err, results) => {
+//     if (err) res.status(400).send(err);
+//     else res.status(200).json(results);
+//   });
+// });
 
 app.use('/', express.static(path.join(__dirname, '../client/dist')));
 

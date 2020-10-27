@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const faker = require('faker');
 const fs = require('fs');
 
@@ -130,14 +131,14 @@ function writeTenMillionSellers(writer, encoding, callback) {
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
-// see if we should continue, or wait
-// don't pass the callback, because we're not done yet.
+        // see if we should continue, or wait
+        // don't pass the callback, because we're not done yet.
         ok = writer.write(data, encoding);
       }
     } while (i > 0 && ok);
     if (i > 0) {
-// had to stop early!
-// write some more once it drains
+      // had to stop early!
+      // write some more once it drains
       writer.once('drain', write);
     }
   }
@@ -162,22 +163,22 @@ function writeTenMillionStores(writer, encoding, callback) {
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
-// see if we should continue, or wait
-// don't pass the callback, because we're not done yet.
+        // see if we should continue, or wait
+        // don't pass the callback, because we're not done yet.
         ok = writer.write(data, encoding);
       }
     } while (i > 0 && ok);
     if (i > 0) {
-// had to stop early!
-// write some more once it drains
+      // had to stop early!
+      // write some more once it drains
       writer.once('drain', write);
     }
   }
-write()
+  write()
 }
 
-function write100MillionProducts(writer, encoding, callback) {
-  let i = 100000000;
+function write10MillionProducts(writer, encoding, callback) {
+  let i = 30000000;
   let id = 0;
   let items = 0;
   let storeid = 1;
@@ -186,7 +187,7 @@ function write100MillionProducts(writer, encoding, callback) {
     do {
       i -= 1;
       id += 1;
-      if(items <= 10) {
+      if (items <= 3) {
         items += 1;
       } else {
         items = 0;
@@ -203,18 +204,18 @@ function write100MillionProducts(writer, encoding, callback) {
       if (i === 0) {
         writer.write(data, encoding, callback);
       } else {
-// see if we should continue, or wait
-// don't pass the callback, because we're not done yet.
+        // see if we should continue, or wait
+        // don't pass the callback, because we're not done yet.
         ok = writer.write(data, encoding);
       }
     } while (i > 0 && ok);
     if (i > 0) {
-// had to stop early!
-// write some more once it drains
+      // had to stop early!
+      // write some more once it drains
       writer.once('drain', write);
     }
   }
-write()
+  write()
 }
 
 writeTenMillionSellers(writeSellers, 'utf-8', () => {
@@ -223,6 +224,6 @@ writeTenMillionSellers(writeSellers, 'utf-8', () => {
 writeTenMillionStores(writeStores, 'utf-8', () => {
   writeStores.end();
 });
-write100MillionProducts(writeProducts, 'utf-8', () => {
+write10MillionProducts(writeProducts, 'utf-8', () => {
   writeProducts.end();
 });
