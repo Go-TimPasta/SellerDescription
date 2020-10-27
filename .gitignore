@@ -5,6 +5,7 @@ client/dist/bundle.js
 stores.csv
 sellers.csv
 products.csv
+key.example.js
 
 # Logs
 logs
