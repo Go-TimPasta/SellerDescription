@@ -69,6 +69,7 @@ FROM '/Users/eno/Desktop/SDC/Etsy-SellerDescription/sellers.csv'
 DELIMITER ','
 CSV HEADER;
 
+
 COPY stores(id,store_name,sales,year_started,based_in,store_image)
 FROM '/Users/eno/Desktop/SDC/Etsy-SellerDescription/stores.csv'
 DELIMITER ','
@@ -79,6 +80,14 @@ FROM '/Users/eno/Desktop/SDC/Etsy-SellerDescription/products.csv'
 DELIMITER ','
 CSV HEADER;
 
-COPY stores FROM '/Users/eno/Desktop/SDC/Etsy-SellerDescription/stores.csv' WITH (FORMAT csv);
+\copy sellers(id,first_name,last_name,seller_image,store_id) FROM '/home/ec2-user/SellerDescription/sellers.csv' DELIMITER ',' CSV HEADER;
+
+
+\copy products(id,product_name,product_price,is_free_shipping,product_image,store_id) FROM '/home/ec2-user/SellerDescription/products.csv' DELIMITER ',' CSV HEADER;
+
+
+\copy stores(id,store_name,sales,year_started,based_in,store_image) FROM '/home/ec2-user/SellerDescription/stores.csv' DELIMITER ',' CSV HEADER;
+
+
 
 */

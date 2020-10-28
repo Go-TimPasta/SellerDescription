@@ -1,4 +1,4 @@
-const KEY = require('/key.example.js');
+const KEY = require('./key.example.js');
 
 'use strict'
 /**
@@ -15,7 +15,7 @@ exports.config = {
   /**
    * Your New Relic license key.
    */
-  license_key: 'KEY',
+  license_key: KEY,
   /**
    * This setting controls distributed tracing.
    * Distributed tracing lets you see the path that a request takes through your

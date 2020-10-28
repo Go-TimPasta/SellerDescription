@@ -6,6 +6,7 @@ stores.csv
 sellers.csv
 products.csv
 key.example.js
+pgdb/configPG.js
 
 # Logs
 logs
