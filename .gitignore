@@ -5,7 +5,7 @@ client/dist/bundle.js
 stores.csv
 sellers.csv
 products.csv
-key.example.js
+key.js
 pgdb/configPG.js
 
 # Logs
