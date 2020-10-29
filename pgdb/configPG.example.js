@@ -1,8 +1,8 @@
 const LOGIN = {
-  user: 'eno',
-  password: 'roootroot',
+  user: '',
+  password: '',
   port: 5432,
-  database: 'test',
+  database: '',
 };
 
 module.exports = LOGIN;
